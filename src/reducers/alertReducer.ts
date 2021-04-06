@@ -1,4 +1,4 @@
-import { AlertAction, AlertState } from "../store/types";
+import { AlertAction, AlertState, SET_ALERT } from "../store/types";
 
 const initialState: AlertState = {
   message: "",

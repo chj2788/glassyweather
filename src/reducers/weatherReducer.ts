@@ -1,4 +1,10 @@
-import { GET_WEATHER, WeatherAction, WeatherState } from "../store/types";
+import {
+  GET_WEATHER,
+  SET_ERROR,
+  SET_LOADING,
+  WeatherAction,
+  WeatherState,
+} from "../store/types";
 
 const initialState: WeatherState = {
   data: null,

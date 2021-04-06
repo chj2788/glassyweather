@@ -69,7 +69,7 @@ interface SetLoadingAction {
 }
 
 interface SetErrorAction {
-  type: typeof Z_STREAM_ERROR;
+  type: typeof SET_ERROR;
   payload: string;
 }
 
