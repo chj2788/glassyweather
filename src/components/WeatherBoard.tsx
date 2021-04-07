@@ -47,44 +47,9 @@ const Container = styled.div`
   z-index: 1;
 `;
 
-const Card = styled(Tilt)`
-  position: relative;
-  width: 230px;
-  height: 350px;
-  margin: 20px;
-  box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
-  border-radius: 15px;
-  background: rgba(255, 255, 255, 0.1);
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.5);
-  border-left: 1px solid rgba(255, 255, 255, 0.5);
-  transform-style: preserve-3d;
-  backdrop-filter: blur(5px);
-`;
-
-const Content = styled.div`
-  padding: 20px;
-  text-align: center;
-  /* transform: translateY(100px); */
-  transform: translateZ(60px);
-  /* opacity: 0; */
-  /* transition: 0.5s; */
-  /* &:hover {
-    transform: translateY(0px);
-    opacity: 1;
-  } */
-`;
-
 const Title = styled.h1`
-  position: absolute;
-  right: 30px;
-  top: -80px;
-  font-size: 3em;
-  color: rgba(255, 255, 255, 0.05);
-  pointer-events: none;
+  font-size: 3.2em;
+  color: #fff;
 `;
 
 const Heading = styled.h3`
@@ -108,123 +73,31 @@ const WeatherBoard: FC<WeatherBoardProps> = ({ data }) => {
   return (
     <Wrapper>
       <Container>
-        {/* <Card>
-          <Content>
-            <Description>
+        <Title>
+          {data.name} - {data.sys.country}
+        </Title>
 
-            </Description>
-          </Content>
-        </Card> */}
-        <Card
-          tiltMaxAngleX={25}
-          tiltMaxAngleY={25}
-          transitionSpeed={400}
-          glareEnable={true}
-          glareMaxOpacity={1}
-        >
-          <Content>
-            <Title>
-              {data.name} - {data.sys.country}
-            </Title>
-            <Heading>
-              {data.weather[0].description}
-              {/* <img
+        <Heading>
+          {data.weather[0].description}
+          {/* <img
                 src={`http://openweathermap.org/img/wn/${data.weather[0].icon}.png`}
                 alt=""
               /> */}
-            </Heading>
-            {/* <p>
+        </Heading>
+        {/* <p>
                 {fahrenheit}
                 <sup>&#8457;</sup>
               </p> */}
-            <Description>
-              Temp: {data.main.temp}
-              <sup>&#8451;</sup>
-            </Description>
-            <Description>
-              Max / Min: {data.main.temp_max} / {data.main.temp_min}
-            </Description>
-            <Description>Humidity: {data.main.humidity}</Description>
-            <Description>Pressure: {data.main.pressure}</Description>
-            <Description>Wind: {data.wind.speed}</Description>
-          </Content>
-        </Card>
-        <Card
-          tiltMaxAngleX={25}
-          tiltMaxAngleY={25}
-          transitionSpeed={400}
-          glareEnable={true}
-          glareMaxOpacity={1}
-        >
-          <Content>
-            <Title>Monday</Title>
-            <Heading>Bright Shine</Heading>
-            <Description>
-              Temp: {data.main.temp}
-              <sup>&#8451;</sup>
-            </Description>
-            <Description>Humidity: {data.main.humidity}</Description>
-            <Description>Pressure: {data.main.pressure}</Description>
-            <Description>Wind: {data.wind.speed}</Description>
-          </Content>
-        </Card>
-        <Card
-          tiltMaxAngleX={25}
-          tiltMaxAngleY={25}
-          transitionSpeed={400}
-          glareEnable={true}
-          glareMaxOpacity={1}
-        >
-          <Content>
-            <Title>Monday</Title>
-            <Heading>Bright Shine</Heading>
-            <Description>
-              Temp: {data.main.temp}
-              <sup>&#8451;</sup>
-            </Description>
-            <Description>Humidity: {data.main.humidity}</Description>
-            <Description>Pressure: {data.main.pressure}</Description>
-            <Description>Wind: {data.wind.speed}</Description>
-          </Content>
-        </Card>
-        <Card
-          tiltMaxAngleX={25}
-          tiltMaxAngleY={25}
-          transitionSpeed={400}
-          glareEnable={true}
-          glareMaxOpacity={1}
-        >
-          <Content>
-            <Title>Monday</Title>
-            <Heading>Bright Shine</Heading>
-            <Description>
-              Temp: {celcius}
-              <sup>&#8451;</sup>
-            </Description>
-            <Description>Humidity: {data.main.humidity}</Description>
-            <Description>Pressure: {data.main.pressure}</Description>
-            <Description>Wind: {data.wind.speed}</Description>
-          </Content>
-        </Card>
-        <Card
-          tiltMaxAngleX={25}
-          tiltMaxAngleY={25}
-          transitionSpeed={400}
-          glareEnable={true}
-          glareMaxOpacity={1}
-        >
-          <Content>
-            <Title>Monday</Title>
-            <Heading>Bright Shine</Heading>
-            <Description>
-              Temp: {celcius}
-              <sup>&#8451;</sup>
-            </Description>
-            <Description>Humidity: {data.main.humidity}</Description>
-            <Description>Pressure: {data.main.pressure}</Description>
-            <Description>Wind: {data.wind.speed}</Description>
-          </Content>
-        </Card>
+        <Description>
+          Temp: {data.main.temp}
+          <sup>&#8451;</sup>
+        </Description>
+        <Description>
+          Max / Min: {data.main.temp_max} / {data.main.temp_min}
+        </Description>
+        <Description>Humidity: {data.main.humidity}</Description>
+        <Description>Pressure: {data.main.pressure}</Description>
+        <Description>Wind: {data.wind.speed}</Description>
       </Container>
     </Wrapper>
   );
