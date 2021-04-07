@@ -1,21 +1,22 @@
 import { ThunkAction } from "redux-thunk";
 import { RootState } from "../store";
 import {
-  GET_WEATHER,
+  GET_WEEKLY,
   SET_ERROR,
   SET_LOADING,
-  WeatherAction,
-  WeatherData,
+  WeeklyAction,
+  WeeklyData,
   WeatherError,
 } from "../store/types";
 
-export const getWeather = (
-  city: string
-): ThunkAction<void, RootState, null, WeatherAction> => {
+export const getWeeklyWeather = (
+  lat: number,
+  lon: number
+): ThunkAction<void, RootState, null, WeeklyAction> => {
   return async (dispatch) => {
     try {
       const res = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=89a68d32a3fe8c5b972de72f04dbc837`
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=current,minutely,hourly,alerts&appid=89a68d32a3fe8c5b972de72f04dbc837`
       );
 
       if (!res.ok) {
@@ -23,9 +24,9 @@ export const getWeather = (
         throw new Error(resData.message);
       }
 
-      const resData: WeatherData = await res.json();
+      const resData: WeeklyData = await res.json();
       dispatch({
-        type: GET_WEATHER,
+        type: GET_WEEKLY,
         payload: resData,
       });
     } catch (err) {
@@ -37,13 +38,13 @@ export const getWeather = (
   };
 };
 
-export const setLoading = (): WeatherAction => {
+export const setLoading = (): WeeklyAction => {
   return {
     type: SET_LOADING,
   };
 };
 
-export const setError = (): WeatherAction => {
+export const setError = (): WeeklyAction => {
   return {
     type: SET_ERROR,
     payload: "",

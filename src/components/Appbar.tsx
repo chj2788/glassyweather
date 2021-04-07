@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   background-color: black;
-  padding: 0.5em 0;
+  padding: 0.1em 0;
 `;
 
 const NeonTitle = styled.span`
@@ -12,7 +12,7 @@ const NeonTitle = styled.span`
 
 const TitleWrapper = styled.h1`
   font-family: "Poppins", sans-serif;
-  font-size: 3em;
+  font-size: 2.5em;
   color: white;
   cursor: pointer;
   &:hover ${NeonTitle} {
