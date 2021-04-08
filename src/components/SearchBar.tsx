@@ -81,7 +81,7 @@ const NeonButton = styled.button`
     box-shadow: 0 0 5px #f7b8ff, 0 0 15px #f7b8ff, 0 0 30px #f7b8ff,
       0 0 60px #f7b8ff;
     border-radius: 10px;
-    transition: 0.5s;
+    transition: 0.2s;
     transition-delay: 0s;
   }
   &:hover::before {
@@ -89,7 +89,7 @@ const NeonButton = styled.button`
     height: 50%;
     width: 80%;
     border-radius: 30px;
-    transition-delay: 0.5s;
+    transition-delay: 0.2s;
   }
   &::after {
     content: "";
@@ -103,7 +103,7 @@ const NeonButton = styled.button`
     box-shadow: 0 0 5px #f7b8ff, 0 0 15px #f7b8ff, 0 0 30px #f7b8ff,
       0 0 60px #f7b8ff;
     border-radius: 10px;
-    transition: 0.5s;
+    transition: 0.2s;
     transition-delay: 0s;
   }
   &:hover::after {
@@ -111,7 +111,7 @@ const NeonButton = styled.button`
     height: 50%;
     width: 80%;
     border-radius: 30px;
-    transition-delay: 0.5s;
+    transition-delay: 0.2s;
   }
   &:focus {
     outline: none;
@@ -145,7 +145,7 @@ const Input = styled.input`
     box-shadow: 0 0 3px #f7b8ff, 0 0 9px #f7b8ff, 0 0 18px #f7b8ff,
       0 0 40px #f7b8ff;
     border-radius: 30px;
-    transition: 0.5s;
+    transition: 0.2s;
     transition-delay: 0s;
   }
 `;
