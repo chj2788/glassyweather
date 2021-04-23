@@ -76,7 +76,7 @@ export interface WeeklyWeather {
     id: number;
     main: string;
     description: string;
-    ion: string;
+    icon: string;
   }>;
   clouds: number;
   pop: number;

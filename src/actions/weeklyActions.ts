@@ -16,7 +16,8 @@ export const getWeeklyWeather = (
   return async (dispatch) => {
     try {
       const res = await fetch(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=current,minutely,hourly,alerts&appid=89a68d32a3fe8c5b972de72f04dbc837`
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=current,minutely,hourly,alerts&appid={api_key}
+        `
       );
 
       if (!res.ok) {

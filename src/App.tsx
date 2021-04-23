@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import styled from "styled-components";
 import { setAlert } from "./actions/alertActions";
 import { setError } from "./actions/weatherActions";
 import "./App.css";
@@ -10,6 +11,11 @@ import WeatherBoard from "./components/WeatherBoard";
 import WeeklyWeather from "./components/WeeklyWeather";
 import { RootState } from "./store";
 
+const Wrapper = styled.div`
+  background: #161623;
+  min-height: 100vh;
+`;
+
 const App: FC = () => {
   const dispatch = useDispatch();
   const weatherData = useSelector((state: RootState) => state.weather.data);
@@ -19,7 +25,7 @@ const App: FC = () => {
   const alertMsg = useSelector((state: RootState) => state.alert.message);
 
   return (
-    <div className="App">
+    <Wrapper className="App">
       <Appbar />
       <SearchBar />
       {loading ? (
@@ -36,7 +42,7 @@ const App: FC = () => {
         <Alert message={alertMsg} onClose={() => dispatch(setAlert(""))} />
       )}
       {error && <Alert message={error} onClose={() => dispatch(setError())} />}
-    </div>
+    </Wrapper>
   );
 };
 
