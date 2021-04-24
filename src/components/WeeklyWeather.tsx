@@ -21,9 +21,16 @@ const Wrapper = styled.div`
   background: #161623;
   margin: 0 15%;
   padding: 3em 0;
+  @media only screen and (max-width: 550px) {
+    padding: 0;
+  }
 `;
 
 const Card = styled(Tilt)`
+  @media only screen and (max-width: 550px) {
+    width: 11em;
+    height: 17em;
+  }
   flex: 0 0 auto;
   width: 14em;
   height: 20em;
@@ -61,9 +68,26 @@ const Heading = styled.h3`
 const Description = styled.p`
   font-size: 1.1em;
   color: #fff;
-  font-weight: 300;
   > * {
     margin-bottom: 8%;
+  }
+  @media only screen and (max-width: 550px) {
+    font-size: 1em;
+    > * {
+      margin-bottom: 5%;
+    }
+  }
+`;
+
+const Image = styled.img`
+  width: 9em;
+  position: absolute;
+  opacity: 15%;
+  right: 85px;
+  top: 35px;
+  @media only screen and (max-width: 550px) {
+    width: 4em;
+    right: 0;
   }
 `;
 
@@ -74,7 +98,7 @@ const WeeklyWeather: FC<WeeklyWeatherProps> = ({ data }) => {
       <InfiniteCarousel
         breakpoints={[
           {
-            breakpoint: 700,
+            breakpoint: 715,
             settings: {
               slidesToShow: 1,
               slidesToScroll: 1,
@@ -118,14 +142,7 @@ const WeeklyWeather: FC<WeeklyWeatherProps> = ({ data }) => {
               glareBorderRadius="15px"
             >
               <Content>
-                <img
-                  style={{
-                    width: "9em",
-                    position: "absolute",
-                    opacity: "15%",
-                    right: "85px",
-                    top: "35px",
-                  }}
+                <Image
                   src={`../images/${IconConverter(day.weather[0].icon)}.png`}
                   alt=""
                 />
@@ -134,10 +151,10 @@ const WeeklyWeather: FC<WeeklyWeatherProps> = ({ data }) => {
                 <Description>
                   <div>
                     <LowIcon width="15px" height="15px" color="blue" />{" "}
-                    {day.temp.min}
+                    {day.temp.min.toFixed(0)}
                     <sup>&#8451;</sup>
                     <HighIcon width="15px" height="15px" color="red" />
-                    {day.temp.max}
+                    {day.temp.max.toFixed(0)}
                     <sup>&#8451;</sup>
                   </div>
                   <div>

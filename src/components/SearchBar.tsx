@@ -10,6 +10,10 @@ const Wrapper = styled.div`
   background: #161623;
   padding-top: 7em;
   margin-bottom: 2em;
+  @media only screen and (max-width: 550px) {
+    padding-top: 5em;
+    margin-bottom: 0;
+  }
   /* display: flex; */
 `;
 
@@ -20,6 +24,9 @@ const NeonButtonWrapper = styled.div`
 `;
 
 const Letter = styled.div`
+  @media only screen and (max-width: 550px) {
+    font-size: 1em;
+  }
   position: absolute;
   top: 0;
   left: 0;
@@ -59,6 +66,11 @@ const Letter = styled.div`
 `;
 
 const NeonButton = styled.button`
+  @media only screen and (max-width: 550px) {
+    width: 6em;
+    height: 2em;
+    margin: 0;
+  }
   border: none;
   background: none;
   padding: none;
@@ -122,6 +134,12 @@ const NeonButton = styled.button`
 `;
 
 const Input = styled.input`
+  @media only screen and (max-width: 550px) {
+    width: 8em;
+    height: 2em;
+    font-size: 1em;
+    padding: 0.2em 2em;
+  }
   width: 12em;
   height: 2em;
   margin: 2em 0;

@@ -38,11 +38,41 @@ const Title = styled.div`
   font-weight: 500;
   text-shadow: 0 0 10px white, 0 0 20px white, 0 0 40px white, 0 0 80px white,
     0 0 120px white, 0 0 160px white;
+  @media only screen and (max-width: 660px) {
+    display: none;
+  }
 `;
-const WeatherWrapper = styled.div`
+const SmallTitle = styled.div`
+  color: #fff;
+  font-size: 2em;
+  font-weight: 500;
+  text-shadow: 0 0 10px white, 0 0 20px white, 0 0 40px white, 0 0 80px white,
+    0 0 120px white, 0 0 160px white;
+  font-size: 1.5em;
+  @media only screen and (min-width: 661px) {
+    display: none;
+  }
+`;
+
+const BoardWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  margin: 4% 0;
+`;
+
+const WeatherWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+`;
+
+const WeatherDescription = styled.div`
+  color: #fff;
+  font-size: 1.5em;
+  @media only screen and (max-width: 800px) {
+    font-size: 1em;
+  }
 `;
 
 const TempWrapper = styled.div`
@@ -51,7 +81,12 @@ const TempWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  margin: 0 10%;
+  margin: 0 8%;
+  width: 13em;
+  @media only screen and (max-width: 550px) {
+    width: 7.5em;
+    margin: 0;
+  }
 `;
 
 const DescWrapper = styled.div`
@@ -64,7 +99,39 @@ const DescWrapper = styled.div`
   width: 12rem;
   margin-top: 4%;
   > * {
-    margin-bottom: 8%;
+    margin-bottom: 6%;
+  }
+  @media only screen and (max-width: 800px) {
+    display: none;
+  }
+`;
+const Image = styled.img`
+  width: 10em;
+  @media only screen and (max-width: 550px) {
+    width: 5em;
+  }
+`;
+
+const MainTemp = styled.div`
+  color: #fff;
+  font-size: 3em;
+  @media only screen and (max-width: 550px) {
+    font-size: 2em;
+  }
+`;
+
+const FeelsLike = styled.div`
+  margin-bottom: 45%;
+  @media only screen and (max-width: 550px) {
+    margin-bottom: 10%;
+  }
+`;
+
+const HighLowWrapper = styled.div`
+  color: #fff;
+  font-size: 1.5em;
+  @media only screen and (max-width: 800px) {
+    font-size: 1em;
   }
 `;
 
@@ -84,60 +151,49 @@ const WeatherBoard: FC<WeatherBoardProps> = ({ data }) => {
 
   return (
     <Wrapper>
-      <Title>Current Weather in {data.name}</Title>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "flex-start",
-          margin: "4% 0",
-        }}
-      >
+      <Title>
+        Current Weather in {data.name}, {data.sys.country}
+      </Title>
+      <SmallTitle>
+        {data.name}, {data.sys.country}
+      </SmallTitle>
+      <BoardWrapper>
         <WeatherWrapper>
           <div>
-            <img
-              style={{ width: "10em" }}
+            <Image
               src={`../images/${IconConverter(data.weather[0].icon)}.png`}
               alt=""
             />
-            <div style={{ color: "#fff", fontSize: "1.5em" }}>
+            <WeatherDescription>
               {data.weather[0].description}
-            </div>
+            </WeatherDescription>
           </div>
           <TempWrapper>
-            <div
-              style={{
-                color: "#fff",
-                fontSize: "3em",
-              }}
-            >
-              {data.main.temp}
+            <MainTemp>
+              {data.main.temp.toFixed(1)}
               <sup>&#8451;</sup>
-            </div>
-            <div style={{ marginBottom: "45%" }}>
-              Feels like {data.main.feels_like}
+            </MainTemp>
+            <FeelsLike>
+              Feels like {data.main.feels_like.toFixed(1)}
               <sup>&#8451;</sup>
-            </div>
-            <div
-              style={{
-                color: "#fff",
-                fontSize: "1.5em",
-              }}
-            >
+            </FeelsLike>
+            <HighLowWrapper>
               <LowIcon height="0.5em" width="0.5em" color="blue" />
-              {data.main.temp_min}
+              {data.main.temp_min.toFixed(1)}
               <sup>&#8451;</sup>
               <HighIcon height="0.5em" width="0.5em" color="red" />
-              {data.main.temp_max}
+              {data.main.temp_max.toFixed(1)}
               <sup>&#8451;</sup>
-            </div>
+            </HighLowWrapper>
           </TempWrapper>
           <DescWrapper>
             <div>
-              <HumIcon width="18px" height="18px" /> {data.main.humidity} %
+              <HumIcon width="18px" height="18px" />{" "}
+              {data.main.humidity.toFixed(1)} %
             </div>
             <div>
-              <WindIcon width="15" height="15" /> {data.wind.speed} m/s
+              <WindIcon width="15" height="15" /> {data.wind.speed.toFixed(1)}{" "}
+              m/s
             </div>
             <div>
               <DirIcon width="15" height="15" /> {WindConverter(data.wind.deg)}(
@@ -157,7 +213,7 @@ const WeatherBoard: FC<WeatherBoardProps> = ({ data }) => {
             </div>
           </DescWrapper>
         </WeatherWrapper>
-      </div>
+      </BoardWrapper>
     </Wrapper>
   );
 };
