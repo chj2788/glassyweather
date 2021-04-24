@@ -3,8 +3,6 @@ import styled from "styled-components";
 import { WeatherData } from "../store/types";
 import { useDispatch } from "react-redux";
 import { getWeeklyWeather } from "../actions/weeklyActions";
-import SunnyRainDrop from "../image/sunny_raindrop.png";
-import { ReactComponent as DropIcon } from "../image/droplet-fill.svg";
 import { ReactComponent as WindIcon } from "../image/wind.svg";
 import { ReactComponent as HighIcon } from "../image/thermometer-high.svg";
 import { ReactComponent as LowIcon } from "../image/thermometer-low.svg";
@@ -12,9 +10,11 @@ import { ReactComponent as DirIcon } from "../image/compass.svg";
 import { ReactComponent as SunriseIcon } from "../image/sunrise-fill.svg";
 import { ReactComponent as SunsetIcon } from "../image/sunset-fill.svg";
 import { ReactComponent as PressureIcon } from "../image/arrows-collapse.svg";
+import { ReactComponent as HumIcon } from "../image/humidity.svg";
 
 import WindConverter from "../misc/WindConverter";
 import moment from "moment";
+import IconConverter from "../misc/IconConverter";
 
 interface WeatherBoardProps {
   data: WeatherData;
@@ -41,7 +41,6 @@ const Title = styled.div`
 `;
 const WeatherWrapper = styled.div`
   display: flex;
-  /* flex-direction: "row"; */
   justify-content: center;
   align-items: flex-start;
 `;
@@ -52,18 +51,20 @@ const TempWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  margin: 0 5%;
+  margin: 0 10%;
 `;
 
 const DescWrapper = styled.div`
+  font-size: 1.1em;
   color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  width: 12rem;
   margin-top: 4%;
   > * {
-    margin-bottom: 4%;
+    margin-bottom: 8%;
   }
 `;
 
@@ -89,11 +90,16 @@ const WeatherBoard: FC<WeatherBoardProps> = ({ data }) => {
           display: "flex",
           justifyContent: "center",
           alignItems: "flex-start",
+          margin: "4% 0",
         }}
       >
         <WeatherWrapper>
           <div>
-            <img style={{ width: "10em" }} src={SunnyRainDrop} alt="" />
+            <img
+              style={{ width: "10em" }}
+              src={`../images/${IconConverter(data.weather[0].icon)}.png`}
+              alt=""
+            />
             <div style={{ color: "#fff", fontSize: "1.5em" }}>
               {data.weather[0].description}
             </div>
@@ -108,7 +114,7 @@ const WeatherBoard: FC<WeatherBoardProps> = ({ data }) => {
               {data.main.temp}
               <sup>&#8451;</sup>
             </div>
-            <div>
+            <div style={{ marginBottom: "45%" }}>
               Feels like {data.main.feels_like}
               <sup>&#8451;</sup>
             </div>
@@ -116,7 +122,6 @@ const WeatherBoard: FC<WeatherBoardProps> = ({ data }) => {
               style={{
                 color: "#fff",
                 fontSize: "1.5em",
-                // marginTop: "40%",
               }}
             >
               <LowIcon height="0.5em" width="0.5em" color="blue" />
@@ -129,27 +134,25 @@ const WeatherBoard: FC<WeatherBoardProps> = ({ data }) => {
           </TempWrapper>
           <DescWrapper>
             <div>
-              <DropIcon width="15" height="15" color="skyblue" /> Humidity:{" "}
-              {data.main.humidity} %
+              <HumIcon width="18px" height="18px" /> {data.main.humidity} %
             </div>
             <div>
-              <WindIcon width="15" height="15" /> Wind: {data.wind.speed} m/s
+              <WindIcon width="15" height="15" /> {data.wind.speed} m/s
             </div>
             <div>
-              <DirIcon width="15" height="15" /> Wind Direction:{" "}
-              {WindConverter(data.wind.deg)}({data.wind.deg}
+              <DirIcon width="15" height="15" /> {WindConverter(data.wind.deg)}(
+              {data.wind.deg}
               °)
             </div>
             <div>
-              <PressureIcon width="15" height="15" /> Pressure:{" "}
-              {data.main.pressure} hPa
+              <PressureIcon width="15" height="15" /> {data.main.pressure} hPa
             </div>
             <div>
-              <SunriseIcon width="15" height="15" color="red" /> Sunrise:{" "}
+              <SunriseIcon width="15" height="15" color="red" />{" "}
               {dateConverter(data.sys.sunrise)}
             </div>
             <div>
-              <SunsetIcon width="15" height="15" color="navy" /> Sunset:{" "}
+              <SunsetIcon width="15" height="15" color="navy" />{" "}
               {dateConverter(data.sys.sunset)}
             </div>
           </DescWrapper>
