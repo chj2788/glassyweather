@@ -58,13 +58,13 @@ const BoardWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  margin: 4% 0;
 `;
 
 const WeatherWrapper = styled.div`
   display: flex;
   justify-content: center;
   width: fit-content;
+  margin: 4% 0;
 `;
 
 const WeatherDescription = styled.div`

@@ -82,8 +82,8 @@ const Description = styled.p`
 const Image = styled.img`
   width: 9em;
   position: absolute;
-  opacity: 15%;
-  right: 85px;
+  opacity: 10%;
+  right: 10px;
   top: 35px;
   @media only screen and (max-width: 550px) {
     width: 4em;
