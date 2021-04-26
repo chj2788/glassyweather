@@ -9,6 +9,7 @@
 - Axios(https://openweathermap.org/api)
 
 ## Overview
+- Hosted with github pages. [Demo](https://chj2788.github.io/glassyweather/)
 - a modern SPA with React
 - used Styled Components for readability
 - Incorporate Redux to architect highly scalable front-end state management
