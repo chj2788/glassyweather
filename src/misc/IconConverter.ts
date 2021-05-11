@@ -23,34 +23,34 @@ const IconConverter = (icon: string) => {
   if (short === "03" || short === "04") {
     return cloudy;
   }
-  if (short === "01d") {
+  if (icon === "01d") {
     return logo01d;
   }
-  if (short === "01n") {
+  if (icon === "01n") {
     return logo01n;
   }
-  if (short === "02d") {
+  if (icon === "02d") {
     return logo02d;
   }
-  if (short === "02n") {
+  if (icon === "02n") {
     return logo02n;
   }
-  if (short === "09d") {
+  if (icon === "09d") {
     return logo09d;
   }
-  if (short === "09n") {
+  if (icon === "09n") {
     return logo09n;
   }
-  if (short === "10d") {
+  if (icon === "10d") {
     return logo10d;
   }
-  if (short === "10n") {
+  if (icon === "10n") {
     return logo10n;
   }
-  if (short === "13d") {
+  if (icon === "13d") {
     return logo13d;
   }
-  if (short === "13n") {
+  if (icon === "13n") {
     return logo13n;
   }
 };
