@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/glassyweather/static/css/main.eec1b98a.chunk.css",
-    "main.js": "/glassyweather/static/js/main.9a12c346.chunk.js",
-    "main.js.map": "/glassyweather/static/js/main.9a12c346.chunk.js.map",
+    "main.js": "/glassyweather/static/js/main.39732b90.chunk.js",
+    "main.js.map": "/glassyweather/static/js/main.39732b90.chunk.js.map",
     "runtime-main.js": "/glassyweather/static/js/runtime-main.37bc27d8.js",
     "runtime-main.js.map": "/glassyweather/static/js/runtime-main.37bc27d8.js.map",
     "static/js/2.bb100815.chunk.js": "/glassyweather/static/js/2.bb100815.chunk.js",
@@ -12,8 +12,19 @@
     "index.html": "/glassyweather/index.html",
     "static/css/main.eec1b98a.chunk.css.map": "/glassyweather/static/css/main.eec1b98a.chunk.css.map",
     "static/js/2.bb100815.chunk.js.LICENSE.txt": "/glassyweather/static/js/2.bb100815.chunk.js.LICENSE.txt",
+    "static/media/01d.94e4a3e0.png": "/glassyweather/static/media/01d.94e4a3e0.png",
+    "static/media/02d.7b519480.png": "/glassyweather/static/media/02d.7b519480.png",
+    "static/media/02n.121ccc21.png": "/glassyweather/static/media/02n.121ccc21.png",
+    "static/media/09d.59c60a59.png": "/glassyweather/static/media/09d.59c60a59.png",
+    "static/media/09n.cc0ddc5c.png": "/glassyweather/static/media/09n.cc0ddc5c.png",
+    "static/media/10d.2bd8b884.png": "/glassyweather/static/media/10d.2bd8b884.png",
+    "static/media/10n.b037f1ae.png": "/glassyweather/static/media/10n.b037f1ae.png",
+    "static/media/11.00e02f06.png": "/glassyweather/static/media/11.00e02f06.png",
+    "static/media/13d.71270a51.png": "/glassyweather/static/media/13d.71270a51.png",
+    "static/media/13n.b284973c.png": "/glassyweather/static/media/13n.b284973c.png",
     "static/media/arrows-collapse.beab369e.svg": "/glassyweather/static/media/arrows-collapse.beab369e.svg",
     "static/media/cloud-rain-heavy-fill.29eb8d34.svg": "/glassyweather/static/media/cloud-rain-heavy-fill.29eb8d34.svg",
+    "static/media/cloudy.5e611ad4.png": "/glassyweather/static/media/cloudy.5e611ad4.png",
     "static/media/compass.8a651f49.svg": "/glassyweather/static/media/compass.8a651f49.svg",
     "static/media/humidity.9cb1b4dc.svg": "/glassyweather/static/media/humidity.9cb1b4dc.svg",
     "static/media/sunrise-fill.b13c14f7.svg": "/glassyweather/static/media/sunrise-fill.b13c14f7.svg",
@@ -26,6 +37,6 @@
     "static/js/runtime-main.37bc27d8.js",
     "static/js/2.bb100815.chunk.js",
     "static/css/main.eec1b98a.chunk.css",
-    "static/js/main.9a12c346.chunk.js"
+    "static/js/main.39732b90.chunk.js"
   ]
 }
