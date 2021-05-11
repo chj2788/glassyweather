@@ -82,7 +82,7 @@ const TempWrapper = styled.div`
   justify-content: center;
   align-items: flex-start;
   margin: 0 8%;
-  width: 13em;
+  width: 15em;
   @media only screen and (max-width: 550px) {
     width: 7.5em;
     margin: 0;
@@ -159,11 +159,8 @@ const WeatherBoard: FC<WeatherBoardProps> = ({ data }) => {
       </SmallTitle>
       <BoardWrapper>
         <WeatherWrapper>
-          <div>
-            <Image
-              src={`../images/${IconConverter(data.weather[0].icon)}.png`}
-              alt=""
-            />
+          <div style={{ marginLeft: "8%" }}>
+            <Image src={IconConverter(data.weather[0].icon)} alt="" />
             <WeatherDescription>
               {data.weather[0].description}
             </WeatherDescription>

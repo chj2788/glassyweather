@@ -50,6 +50,19 @@ const Content = styled.div`
   text-align: center;
 `;
 
+const TodayTitle = styled.h1`
+  position: absolute;
+  right: 10px;
+  top: -30px;
+  font-size: 3.2em;
+  color: rgba(255, 255, 255, 0.226);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.226),
+    0 0 20px rgba(255, 255, 255, 0.226), 0 0 40px rgba(255, 255, 255, 0.226),
+    0 0 80px rgba(255, 255, 255, 0.226), 0 0 120px rgba(255, 255, 255, 0.226),
+    0 0 160px rgba(255, 255, 255, 0.226);
+  pointer-events: none;
+`;
+
 const Title = styled.h1`
   position: absolute;
   right: 10px;
@@ -83,11 +96,10 @@ const Image = styled.img`
   width: 9em;
   position: absolute;
   opacity: 10%;
-  right: 10px;
-  top: 35px;
+  right: 0;
+  top: 60px;
   @media only screen and (max-width: 550px) {
     width: 4em;
-    right: 0;
   }
 `;
 
@@ -127,11 +139,10 @@ const WeeklyWeather: FC<WeeklyWeatherProps> = ({ data }) => {
         slidesToShow={4}
         scrollOnDevice={true}
       >
-        {data.daily.map((day) => {
+        {data.daily.map((day, idx) => {
           const date = new Date(day.dt * 1000);
           const dateString = moment(date).format("DD");
           const weekDay = moment(date).format("dddd").substring(0, 3);
-          console.log(day.weather[0].icon);
           return (
             <Card
               tiltMaxAngleX={25}
@@ -142,11 +153,12 @@ const WeeklyWeather: FC<WeeklyWeatherProps> = ({ data }) => {
               glareBorderRadius="15px"
             >
               <Content>
-                <Image
-                  src={`../images/${IconConverter(day.weather[0].icon)}.png`}
-                  alt=""
-                />
-                <Title>{dateString + " " + weekDay}</Title>
+                <Image src={IconConverter(day.weather[0].icon)} alt="" />
+                {idx === 0 ? (
+                  <TodayTitle>{dateString + " " + weekDay}</TodayTitle>
+                ) : (
+                  <Title>{dateString + " " + weekDay}</Title>
+                )}
                 <Heading>{day.weather[0].main}</Heading>
                 <Description>
                   <div>
